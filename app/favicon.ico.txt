@@ -1,0 +1,1 @@
+Place your favicon.ico file here or use app/icon.tsx to generate one dynamically.
