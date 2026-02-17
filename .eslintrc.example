@@ -1,0 +1,8 @@
+{
+  "extends": "next/core-web-vitals"
+}
+
+// To enable ESLint:
+// 1. Install dependencies: npm install --save-dev eslint eslint-config-next
+// 2. Rename this file to .eslintrc.json
+// 3. Run: npm run lint
