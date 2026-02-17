@@ -14,7 +14,7 @@ A production-ready mobile-first Progressive Web App (PWA) built with Next.js 14,
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15 (App Router) - _Updated for security patches_
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **UI Components**: ShadCN UI

@@ -11,15 +11,16 @@ import { CommentsSection } from "@/components/comments-section"
 export default async function EventDetailPage({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
+  const { id } = await params
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   const { data: event } = await supabase
     .from('events')
     .select('*, profiles!events_creator_id_fkey(full_name, email)')
-    .eq('id', params.id)
+    .eq('id', id)
     .single()
 
   if (!event) {

@@ -5,8 +5,9 @@ import { EditEventForm } from "@/components/edit-event-form"
 export default async function EditEventPage({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
+  const { id } = await params
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
@@ -17,7 +18,7 @@ export default async function EditEventPage({
   const { data: event } = await supabase
     .from('events')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .single()
 
   if (!event) {
@@ -25,7 +26,7 @@ export default async function EditEventPage({
   }
 
   if (event.creator_id !== user.id) {
-    redirect(`/events/${params.id}`)
+    redirect(`/events/${id}`)
   }
 
   return <EditEventForm event={event} />
